@@ -81,6 +81,7 @@
 					@if($errors->has('foto'))
 						<p class="pull-left text-danger">{!!$errors->get('foto')[0]!!}</p>
 					@endif
+                    <img style="margin-top:15px" class="col-sm-12 img-thumbnail img-responsive" src="{!! asset($producto->getFotoDirectory().$producto->foto)!!}" alt="{!!$producto->foto!!}"/>
 				</div>
 
 				<div class="form-group col-sm-10">
