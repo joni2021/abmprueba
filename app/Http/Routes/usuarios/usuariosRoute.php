@@ -8,23 +8,26 @@
 
 Route::post('usuarios/login', 'usuarios\UsuarioController@login');
 
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth', 'namespace' => 'usuarios'], function() {
 
-    Route::get('usuarios', 'usuarios\UsuarioController@index');
+    Route::get('usuarios', [
+        'as' => 'usuarios.index',
+        'uses' => 'UsuarioController@index'
+    ]);
 
-    Route::get('usuarios/{id}', 'usuarios\UsuarioController@listaPorId');
+    Route::get('usuarios/{id}', 'UsuarioController@listaPorId');
 
-    Route::get('usuarios/modificar/{id}', 'usuarios\UsuarioController@edit');
+    Route::get('usuarios/modificar/{id}', 'UsuarioController@edit');
 
-    Route::get('usuarios/desactivar/{id}', 'usuarios\UsuarioController@desactivar');
+    Route::get('usuarios/desactivar/{id}', 'UsuarioController@desactivar');
 
-    Route::get('usuarios/activar/{id}', 'usuarios\UsuarioController@activar');
+    Route::get('usuarios/activar/{id}', 'UsuarioController@activar');
 
-    Route::get('logout', 'usuarios\UsuarioController@logout');
+    Route::get('logout', 'UsuarioController@logout');
 });
 
-Route::get('alta', 'usuarios\UsuarioController@formAlta');
+Route::get('alta', 'UsuarioController@formAlta');
 
-Route::post('usuarios/alta', 'usuarios\UsuarioController@create');
+Route::post('usuarios/alta', 'UsuarioController@create');
 
-Route::put('usuarios/modificar/{id}', 'usuarios\UsuarioController@update');
+Route::put('usuarios/modificar/{id}', 'UsuarioController@update');

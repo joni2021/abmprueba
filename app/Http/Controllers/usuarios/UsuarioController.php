@@ -2,7 +2,6 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\Paginator;
@@ -12,32 +11,15 @@ use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller {
 
-	public function __construct()
-	{
-		$this->beforeFilter('@findUser', ['only' => ['edit', 'update']]);
-	}
-
-
-	public function findUser(Route $route)
-	{
-		$this->usuario = Usuario::findOrFail($route->getParameter('id'));
-	}
-
-
-	public function login()
+	public function login(Request $request)
     {
         if (Auth::attempt(['email' => \Request::get('email'), 'password' => \Request::get('password'), 'estado' => '1']))
         {
-            return \Redirect::to('usuarios');
+            return redirect()->intended('usuarios.index');
         }else{
-            return \Redirect::to('auth/login')->withInput()->with('errors','Hubo un error de logueo');
+            return redirect()->back()->withErrors('Hubo un error de logueo');
         }
     }
-
-	public function listaPorId($id){
-		$users = \DB::table('usuarios')->where('id',$id)->get();		
-	}
-
 
 	public function index()
 	{

@@ -23,48 +23,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ProductoController.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/productos/ProductoController.php">
+      <file leaf-file-name="listadoProductos.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/productos/listadoProductos.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="105" column="65" selection-start="2634" selection-end="2648" vertical-scroll-proportion="0.3329223" vertical-offset="1379" max-vertical-offset="2737">
+            <state line="129" column="45" selection-start="3386" selection-end="3386" vertical-scroll-proportion="-0.0" vertical-offset="2193" max-vertical-offset="3077">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Producto.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Producto.php">
+        <entry file="file://$PROJECT_DIR$/app/Entities/Producto.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="409" selection-end="409" vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="459">
+            <state line="2" column="28" selection-start="59" selection-end="59" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="459">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="listadoProductos.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/productos/listadoProductos.blade.php">
+      <file leaf-file-name="UsuarioController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/usuarios/UsuarioController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="129" column="45" selection-start="3386" selection-end="3386" vertical-scroll-proportion="-9.960784" vertical-offset="1685" max-vertical-offset="3077">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="editarProducto.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/productos/editarProducto.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="160" selection-start="2548" selection-end="2607" vertical-scroll-proportion="-4.9607844" vertical-offset="1158" max-vertical-offset="2771">
+            <state line="32" column="8" selection-start="1034" selection-end="1034" vertical-scroll-proportion="0.6507177" vertical-offset="0" max-vertical-offset="2091">
               <folding>
-                <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#48#70#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="productosRoute.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Routes/productos/productosRoute.php">
+      <file leaf-file-name="UsuarioRepo.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/UsuarioRepo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="14" selection-start="541" selection-end="541" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="374">
+            <state line="19" column="2" selection-start="255" selection-end="255" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="340">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseRepo.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/BaseRepo.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="29" selection-start="601" selection-end="601" vertical-scroll-proportion="-17.653847" vertical-offset="0" max-vertical-offset="663">
               <folding />
             </state>
           </provider>
@@ -74,6 +74,15 @@
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="14" column="0" selection-start="438" selection-end="438" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="340">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="usuariosRoute.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Routes/usuarios/usuariosRoute.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="0" selection-start="747" selection-end="747" vertical-scroll-proportion="-15.692307" vertical-offset="0" max-vertical-offset="578">
               <folding />
             </state>
           </provider>
@@ -89,10 +98,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/Request.php" />
-        <option value="$PROJECT_DIR$/resources/views/usuarios.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
-        <option value="$PROJECT_DIR$/../stock/artisan" />
         <option value="$PROJECT_DIR$/../stock/bootstrap/app.php" />
         <option value="$PROJECT_DIR$/../stock/app/Console/Kernel.php" />
         <option value="$PROJECT_DIR$/../stock/config/auth.php" />
@@ -110,7 +115,6 @@
         <option value="$PROJECT_DIR$/app/Http/productos/productosRoute.php" />
         <option value="$PROJECT_DIR$/app/Http/Routes/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Routes/usuarios/usuariosRoutes.php" />
-        <option value="$PROJECT_DIR$/app/Http/Routes/usuarios/usuariosRoute.php" />
         <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Facades/DB.php" />
         <option value="$PROJECT_DIR$/.env.example" />
         <option value="$PROJECT_DIR$/.env" />
@@ -134,9 +138,17 @@
         <option value="$PROJECT_DIR$/app/Http/Routes/productos/productosRoute.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/productos/ProductoController.php" />
         <option value="$PROJECT_DIR$/public/js/modal.js" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/usuarios/UsuarioController.php" />
         <option value="$PROJECT_DIR$/resources/views/productos/editarProducto.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/productos/listadoProductos.blade.php" />
+        <option value="$PROJECT_DIR$/app/Entities/Producto.php" />
+        <option value="$PROJECT_DIR$/app/Entities/User.php" />
+        <option value="$PROJECT_DIR$/app/Entities/Usuario.php" />
+        <option value="$PROJECT_DIR$/config/auth.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/UsusuarioRepo.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/UsuarioRepo.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/BaseRepo.php" />
+        <option value="$PROJECT_DIR$/app/Http/Routes/usuarios/usuariosRoute.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/usuarios/UsuarioController.php" />
       </list>
     </option>
   </component>
@@ -277,7 +289,39 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Repositories" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -318,76 +362,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="productos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -413,11 +387,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
+              <option name="myItemId" value="Routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="productos" />
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Entities" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -443,11 +431,11 @@
       <recent name="C:\xampp\htdocs\laravel\database\seeds" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\laravel\app\Entities" />
       <recent name="C:\xampp\htdocs\laravel\resources\views\productos" />
       <recent name="C:\xampp\htdocs\laravel\app\Http" />
       <recent name="C:\xampp\htdocs\laravel\resources\views\usuarios" />
       <recent name="C:\xampp\htdocs\laravel\app\Http\Controllers\productos" />
-      <recent name="C:\xampp\htdocs\laravel\app\Http\Routes" />
     </key>
   </component>
   <component name="RunManager">
@@ -514,7 +502,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="996" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -529,11 +517,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995495" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995495" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -555,16 +543,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="8" selection-start="322" selection-end="322" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="476" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_06_08_153221_productos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="41" selection-start="547" selection-end="547" vertical-scroll-proportion="-6.8461537" vertical-offset="77" max-vertical-offset="646" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_classmap.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="390" column="52" selection-start="39607" selection-end="39607" vertical-scroll-proportion="41.423077" vertical-offset="7707" max-vertical-offset="8891" />
@@ -682,11 +660,6 @@
         <state line="17" column="6" selection-start="530" selection-end="530" vertical-scroll-proportion="0.35460123" vertical-offset="0" max-vertical-offset="815" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="841" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="54" selection-start="659" selection-end="668" vertical-scroll-proportion="0.73006135" vertical-offset="0" max-vertical-offset="816" />
@@ -702,16 +675,6 @@
         <state line="4" column="40" selection-start="158" selection-end="158" vertical-scroll-proportion="0.08133971" vertical-offset="0" max-vertical-offset="836" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="52" selection-start="1415" selection-end="1415" vertical-scroll-proportion="0.5083732" vertical-offset="357" max-vertical-offset="1241" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Routes/usuarios/usuariosRoute.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="868" selection-end="868" vertical-scroll-proportion="0.5083732" vertical-offset="0" max-vertical-offset="836" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Http/FormRequest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="6" selection-start="419" selection-end="430" vertical-scroll-proportion="-2.231902" vertical-offset="1887" max-vertical-offset="3927" />
@@ -720,11 +683,6 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/Request.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="37" selection-start="118" selection-end="118" vertical-scroll-proportion="0.08133971" vertical-offset="0" max-vertical-offset="836" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="798" selection-end="798" vertical-scroll-proportion="-18.961538" vertical-offset="0" max-vertical-offset="629" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Routing/Controller.php">
@@ -746,11 +704,6 @@
         <state line="2752" column="32" selection-start="74577" selection-end="74589" vertical-scroll-proportion="0.22129187" vertical-offset="46174" max-vertical-offset="57273">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Usuario.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="0" selection-start="969" selection-end="969" vertical-scroll-proportion="0.75239235" vertical-offset="0" max-vertical-offset="836" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/CreateUserRequest.php">
@@ -783,11 +736,6 @@
         <state line="4" column="10" selection-start="61" selection-end="61" vertical-scroll-proportion="0.08343558" vertical-offset="0" max-vertical-offset="3077" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/usuarios/UsuarioController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="42" selection-start="2393" selection-end="2393" vertical-scroll-proportion="0.22727273" vertical-offset="1391" max-vertical-offset="2261" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/modal.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="28" selection-start="411" selection-end="411" vertical-scroll-proportion="0.2563805" vertical-offset="0" max-vertical-offset="862" />
@@ -800,26 +748,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Producto.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Routes/productos/productosRoute.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="409" selection-end="409" vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="459">
+        <state line="15" column="14" selection-start="541" selection-end="541" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="374">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/productos/listadoProductos.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Entities/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="45" selection-start="3386" selection-end="3386" vertical-scroll-proportion="-9.960784" vertical-offset="1685" max-vertical-offset="3077">
+        <state line="0" column="28" selection-start="28" selection-end="28" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="836">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Entities/Usuario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="28" selection-start="28" selection-end="28" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="836">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/auth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="29" selection-start="928" selection-end="928" vertical-scroll-proportion="0.18660288" vertical-offset="354" max-vertical-offset="1241">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/productos/ProductoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="38" selection-start="318" selection-end="318" vertical-scroll-proportion="-5.769231" vertical-offset="3" max-vertical-offset="2890">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/productos/editarProducto.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="160" selection-start="2548" selection-end="2607" vertical-scroll-proportion="-4.9607844" vertical-offset="1158" max-vertical-offset="2771">
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="83" column="160" selection-start="2548" selection-end="2607" vertical-scroll-proportion="0.10167464" vertical-offset="1411" max-vertical-offset="2771">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="836">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/productos/listadoProductos.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="129" column="45" selection-start="3386" selection-end="3386" vertical-scroll-proportion="0.0" vertical-offset="2193" max-vertical-offset="3060">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Routes/usuarios/usuariosRoute.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="747" selection-end="747" vertical-scroll-proportion="-15.692307" vertical-offset="0" max-vertical-offset="578">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -830,17 +818,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Routes/productos/productosRoute.php">
+    <entry file="file://$PROJECT_DIR$/app/Repositories/BaseRepo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="14" selection-start="541" selection-end="541" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="374">
+        <state line="32" column="29" selection-start="601" selection-end="601" vertical-scroll-proportion="-17.653847" vertical-offset="0" max-vertical-offset="663">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/productos/ProductoController.php">
+    <entry file="file://$PROJECT_DIR$/app/Repositories/UsuarioRepo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="65" selection-start="2634" selection-end="2648" vertical-scroll-proportion="0.3329223" vertical-offset="1379" max-vertical-offset="2737">
+        <state line="19" column="2" selection-start="255" selection-end="255" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="340">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Entities/Producto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="28" selection-start="59" selection-end="59" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="459">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/usuarios/UsuarioController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="8" selection-start="1034" selection-end="1034" vertical-scroll-proportion="0.6507177" vertical-offset="0" max-vertical-offset="2091">
+          <folding>
+            <element signature="e#48#70#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
