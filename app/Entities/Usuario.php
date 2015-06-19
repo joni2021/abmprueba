@@ -36,5 +36,30 @@ class Usuario extends Model implements AuthenticatableContract, CanResetPassword
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+    // Relaciones
+    public function sexo() {
+        return $this->belongsTo('App\Entities\Sexo', 'fkSexo', 'idSexo');
+    }
+
+    public function nivel() {
+        return $this->belongsTo('App\Entities\Nivel', 'fkNivel', 'idNivel');
+    }
+
+    // Scopes
+    public function scopeNombre($query, $nombre) {
+        if (trim($nombre) != '')
+            $query->orWhere('nombre', 'LIKE', "%$nombre%");
+    }
+
+    public function scopeApellido($query, $apellido) {
+        if (trim($apellido) != '')
+            $query->orWhere('apellido', 'LIKE', "$apellido%");
+    }
+
+    // Mutators
+    public function setPasswordAttribute($value) {
+        $this->attributes['password'] = bcrypt($value);
+    }
+
 
 }

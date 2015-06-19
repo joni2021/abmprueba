@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('content')
+@section('body')
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
@@ -16,7 +16,7 @@
 						</div>
                     @endif
 
-					<form class="form-horizontal" role="form" method="POST" action="../usuarios/login">
+					{!! Form::open(['route' => 'auth.authenticate', 'method' => 'POST']) !!}
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group">
@@ -50,7 +50,7 @@
 								<a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
 							</div>
 						</div>
-					</form>
+					{!! Form::close() !!}
 				</div>
 			</div>
 		</div>

@@ -1,120 +1,109 @@
-<!DOCTYPE html>
-<html>	
-<head>
-	<title>Listado de usuarios</title>
-	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-	<style type="text/css">
-		body
-		{
-			width: 80%;
-			margin:auto;
-			text-align: center;
-			font-family: helvetica;
-		}
+@extends('app')
 
-		table
-		{
-			margin:auto;
-			width: 100%;
-			border:1px solid #666;
-		}
+@section('head')
+<style type="text/css">
+    table *
+    {
+        text-align: center;
+    }
 
-		table *
-		{
-			text-align: center;
-		}
+    table thead
+    {
+        background: #f2f2f2;
+    }
 
-		table thead
-		{
-			background: #f2f2f2;
-		}
+    #mensaje
+    {
+        margin-top:20px;
+    }
 
-		#acciones
-		{
-			margin-top:10px;
-			margin-bottom:10px;
-		}
+</style>
+@endsection
 
-		#acciones a
-		{
-			margin:10px;
-		}
+@section('js')
+<script type="text/javascript">
+    $(document).ready()
+    {
+        if($('#mensaje'))
+        {
+            setTimeout(function(){
+                $('#mensaje').fadeOut();
+            },1200);
+        }
+    }
+</script>
+@endsection
 
-		#mensaje
-		{
-			margin-top:20px;
-		}
+@section('body')
+<div class="row">
+    <div class="col-xs-4 col-lg-6">
+        <a href="{{ route('usuarios.create') }}" class="btn btn-primary">
+            Agregar Usuario
+        </a>
+    </div>
+    <div class="col-xs-8 col-lg-6">
+        {!! Form::open(['method' => 'GET']) !!}
+            <div class="input-group">
+                {!! Form::text('search', null, ['class' => 'form-control']) !!}
+                <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default">Buscar</button>
+                </div>
+            </div>
+        {!! Form::close() !!}
+    </div>
+</div>
 
-	</style>
-	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-</head>
-<body>
-	<div id="acciones" class="row">
-		<a href="logout"  class="btn btn-primary pull-right col-md-1 btn-md margin-15">Logout</a>
-		<a href="productos" class="col-md-3 pull-right text-center btn btn-info">ver productos</a>
-		@if(\Session::has('estado'))
-			@if(isset(\Session::get('estado')['ok']))
-				<p class="pull-left text-info" id="mensaje">{!!\Session::get('estado')['ok']!!}</p>
-			@else
-				<p class="pull-left text-info" id="mensaje">{!!\Session::get('estado')['no']!!}</p>
-			@endif
-		@endif
-	</div>
+<br class="clearfix" />
 
+<div class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Nivel</th>
+                    <th>Sexo</th>
+                    <th>Mail</th>
+                    <th>Usuario</th>
+                    @if(Auth::user()->fkNivel == '1')
+                    <th>acciones</th>
+                    @endif
+                </tr>
+                </thead>
 
-	<table class="table table-bordered">
-		<thead>
-		<tr>
-			<th>Nombre</th>
-			<th>Apellido</th>
-			<th>Nivel</th>
-			<th>Sexo</th>
-			<th>Mail</th>
-			<th>Usuario</th>
-		@if(Auth::user()->fkNivel == '1')
-			<th>acciones</th>
-		@endif
-		</tr>
-		</thead>
-		
-		<tbody>
-		@foreach($usuario as $u)
-			<tr>
-				<th scope="row">{{ $u->nombre }}</th>
-				<td>{{ $u->apellido }}</td>
-				<td>{{ $u->nivel }}</td>
-				<td>{{ $u->sexo }}</td>
-				<td>{{ $u->email }}</td>
-				<td>{{ $u->usuario }}</td>
-				@if(Auth::user()->fkNivel == '1')
-				<td>
-					@if($u->estado == '0')
-					<a href="usuarios/activar/{{$u->id}}" class = 'btn btn-primary'>activar</a>
-					@else
-				
-					<a href="usuarios/desactivar/{{$u->id}}" class = 'btn btn-danger'>desactivar</a>
-					<a href="usuarios/modificar/{!!$u->id!!}" class = 'btn btn-primary'>Modificar</a>
-					@endif
-				</td>
-				@endif
-			</tr>
-		@endforeach
-		</tbody>
-	</table>
+                <tbody>
+                @foreach($usuario as $u)
+                <tr>
+                    <th scope="row">{{ $u->nombre }}</th>
+                    <td>{{ $u->apellido }}</td>
+                    <td>{{ $u->nivel->nivel }}</td>
+                    <td>{{ $u->sexo->sexo }}</td>
+                    <td>{{ $u->email }}</td>
+                    <td>{{ $u->usuario }}</td>
+                    @if(Auth::user()->fkNivel == '1')
+                    <td>
+                        @if($u->estado == '0')
+                        <a href="usuarios/activar/{{$u->id}}" class = 'btn btn-primary'>activar</a>
+                        @else
 
-	{!!	$usuario->appends(Request::all())->render() !!}
+                        <a href="usuarios/desactivar/{{$u->id}}" class = 'btn btn-danger'>desactivar</a>
+                        <a href="usuarios/modificar/{!!$u->id!!}" class = 'btn btn-primary'>Modificar</a>
+                        @endif
+                    </td>
+                    @endif
+                </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
-	<script type="text/javascript">
-		$(document).ready()
-		{
-			if($('#mensaje'))
-			{
-				setTimeout(function(){
-					$('#mensaje').fadeOut();
-				},1200);
-			}
-		}
-	</script>
-
-</body>
-</html>
+<div class="row">
+    <div class="col-xs-12 text-center">
+        {!!	$usuario->appends(Request::all())->render() !!}
+    </div>
+</div>
+@endsection

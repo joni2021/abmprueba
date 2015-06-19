@@ -17,4 +17,13 @@ class UsuarioRepo extends BaseRepo {
         return new Usuario;
     }
 
+    public function ListAndPaginate($search = null, $paginate = 50) {
+        $qry = $this->model->orderBy('id', 'desc')
+            ->nombre($search)
+            ->apellido($search)
+            ->paginate($paginate);
+
+        return $qry;
+    }
+
 } 

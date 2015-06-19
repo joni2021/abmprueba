@@ -11,13 +11,12 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+require (__DIR__ . '/Routes/auth.php');
 
-include 'Routes/usuarios/usuariosRoute.php';
+Route::group(['middleware' => 'auth'], function() {
 
-include 'Routes/productos/productosRoute.php';
+    require (__DIR__ . '/Routes/productos.php');
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+    require (__DIR__ . '/Routes/usuarios.php');
+
+});

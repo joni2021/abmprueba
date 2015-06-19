@@ -2,6 +2,8 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Repositories\SexoRepo;
+use App\Repositories\UsuarioRepo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\Paginator;
@@ -11,40 +13,42 @@ use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller {
 
-	public function login(Request $request)
-    {
-        if (Auth::attempt(['email' => \Request::get('email'), 'password' => \Request::get('password'), 'estado' => '1']))
-        {
-            return redirect()->intended('usuarios.index');
-        }else{
-            return redirect()->back()->withErrors('Hubo un error de logueo');
-        }
+    protected $usuarioRepo;
+    protected $sexoRepo;
+
+    public function __construct(UsuarioRepo $usuarioRepo, SexoRepo $sexoRepo) {
+        $this->usuarioRepo = $usuarioRepo;
+        $this->sexoRepo = $sexoRepo;
     }
 
-	public function index()
+	public function login(Request $request)
+    {
+
+    }
+
+	public function index(Request $request)
 	{
-		$usuario = \DB::table('usuarios')
-						->join('sexos','sexos.idSexo','=','usuarios.fkSexo')
-						->join('niveles','niveles.idNivel','=','usuarios.fkNivel')
-                        ->orderBy('id','desc')
-						->paginate(15);
+        $usuario = $this->usuarioRepo->ListAndPaginate(
+            $request->get('search'),
+            15
+        );
 				
 		return view('usuarios/usuarios', compact('usuario'));
-		
 	}
 
-	public function formAlta()
-	{
-		return view('usuarios/formAlta');
+	public function create() {
+        $sexos = $this->sexoRepo->Listing();
+
+		return view('usuarios.create', compact('sexos'));
 	}
 
 	
-	public function create(CreateUserRequest $request)
+	public function store(CreateUserRequest $request)
 	{
+        $datos = $request->only('s');
+
 		$datos = $request->all();
 		$datos['fkNivel'] = 2;
-
-        $datos['password'] = Hash::make($datos['password']);
 
         Usuario::create($datos);
         return \Redirect::to('usuarios');
