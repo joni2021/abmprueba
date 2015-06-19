@@ -28,6 +28,7 @@ class UsuariosSeeder extends Seeder {
 		  		'fkSexo' => $faker->numberBetween($min = 1, $max = 2),
 		  		'fkNivel' => '2',
 		  		'usuario' => $faker->userName,
+		  		'estado' => 1,
 		  		'password' => \Hash::make('1234')
 		  	));
 		}

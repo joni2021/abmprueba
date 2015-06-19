@@ -22,6 +22,7 @@ class Usuarios extends Migration {
 			$table->integer('fkNivel')->unsigned;
 			$table->string('usuario');
 			$table->string('password',60)->index();
+			$table->tinyInteger('estado',1);
 			$table->string('remember_token')->index();
 			$table->timestamp('created_at');
 			$table->timestamp('updated_at');

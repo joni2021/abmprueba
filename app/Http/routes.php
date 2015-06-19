@@ -13,29 +13,9 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::post('usuarios/login', 'UsuarioController@login');
+include 'Routes/usuarios/usuariosRoute.php';
 
-Route::group(['middleware' => 'auth'], function() {
-
-    Route::get('usuarios', 'UsuarioController@index');
-
-    Route::get('usuarios/{id}', 'UsuarioController@listaPorId');
-
-    Route::get('usuarios/modificar/{id}', 'UsuarioController@edit');
-
-    Route::get('usuarios/desactivar/{id}', 'UsuarioController@desactivar');
-
-    Route::get('usuarios/activar/{id}', 'UsuarioController@activar');
-
-    Route::get('logout', 'UsuarioController@logout');
-});
-
-Route::get('alta', 'UsuarioController@formAlta');
-
-Route::post('usuarios/alta', 'UsuarioController@create');
-
-Route::put('usuarios/modificar/{id}', 'UsuarioController@update');
-
+include 'Routes/productos/productosRoute.php';
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
