@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\usuarios;
 
+use App\Entities\Usuario;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Repositories\SexoRepo;
@@ -30,7 +31,7 @@ class UsuarioController extends Controller {
 	{
         $usuario = $this->usuarioRepo->ListAndPaginate(
             $request->get('search'),
-            15
+            10
         );
 				
 		return view('usuarios/usuarios', compact('usuario'));
@@ -45,7 +46,7 @@ class UsuarioController extends Controller {
 	
 	public function store(CreateUserRequest $request)
 	{
-        $datos = $request->only('s');
+        $datos = $request->only('nombre','apellido','email','fkSexo','usuario','password');
 
 		$datos = $request->all();
 		$datos['fkNivel'] = 2;
@@ -58,9 +59,10 @@ class UsuarioController extends Controller {
 
 	public function edit()
 	{
-		$usuario = $this->usuario;
+		$usuario = $this->usuarioRepo->getModel();
+        $sexos = $this->sexoRepo->Listing();
 
-		return view('usuarios/formModificar', compact('usuario'));
+		return view('usuarios/formModificar', compact('usuario','sexos'));
 	}
 
 
@@ -79,17 +81,15 @@ class UsuarioController extends Controller {
 
 	public function desactivar($id)
 	{
-		$usuarioDesactivado = Usuario::find($id);
+        $usuarioDesactivado = Usuario::find($id);
 
-		$usuarioDesactivado->estado = false;
+		$usuarioDesactivado->estado = 0;
 
 		if($usuarioDesactivado->save())
-		{
 			return \Redirect::to('usuarios')->with('estado', ['ok' => 'Se desactivó al usuario <b>'.$usuarioDesactivado->usuario.'</b>']);
-		}else
-		{
+		else
 			return \Redirect::to('usuarios')->with('estado', ['no' => 'No se puso desactivar al usuario <b>'.$usuarioDesactivado->usuario.'</b>']);
-		}
+
 
 	}
 
@@ -101,12 +101,10 @@ class UsuarioController extends Controller {
 		$usuario->estado = 1;
 
 		if($usuario->save())
-		{
 			return \Redirect::to('usuarios')->with('estado', ['ok' => 'Se activó al usuario <b>'.$usuario->usuario.'</b>']);
-		}else
-		{
+		else
 			return \Redirect::to('usuarios')->with('estado', ['no' => 'No se puso activar al usuario <b>'.$usuario->usuario.'</b>']);
-		}
+
 		
 	}
 

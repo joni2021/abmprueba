@@ -2,7 +2,8 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Producto;
+use App\Entities\Producto;
+use App\Repositories\ProductoRepo;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,16 +17,13 @@ use Illuminate\Support\Facades\Storage;
  */
 class ProductoController extends Controller {
 
-    public function __construct()
+    protected $productoRepo;
+
+    public function __construct(ProductoRepo $productoRepo)
     {
-        $this->beforeFilter('@findProduct',['only'=>['edit','update']]);
+        $this->productoRepo = $productoRepo;
     }
 
-
-    public function findProduct(Route $route)
-    {
-        $this->producto = Producto::findOrFail($route->getParameter('id'));
-    }
 
     public function validarFoto($archivo,$producto = null){
         if(\Request::hasFile('foto')){
@@ -51,32 +49,25 @@ class ProductoController extends Controller {
     }
 
 
-    /**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-
-	public function index()
+	public function index(Request $request)
 	{
-        $productos = DB::table('productos')
-            ->join('usuarios','usuarios.id','=','productos.fkUsuario')
-            ->select('productos.id as idProducto','producto','descripcion','precio','foto','fkUsuario','productos.created_at','estadoProducto','usuarios.usuario')
-            ->orderBy('idProducto','desc')
-            ->paginate(10);
+        $productos = $this->productoRepo->ListAndPaginate(
+            $request->get('search'),
+            10
+        );
 
-        return view('productos/listadoProductos',compact('productos'));
+        return view('productos.listadoProductos',compact('productos'));
 	}
 
 
     public function formAlta(){
-        return view('productos/altaProducto');
+        return view('productos.altaProducto');
     }
 
 
 	public function create(productoRequest $request)
 	{
-        $datos = $request->all();
+        $datos = $request->only('producto','descripcion','precio','foto','fkUsuario');
 
         $datos['foto'] = $this->validarFoto($request->file('foto'));
 
@@ -90,9 +81,9 @@ class ProductoController extends Controller {
 
 	public function edit()
 	{
-        $producto = $this->producto;
+        $producto = $this->productoRepo->getModel();
 
-        return view('productos/editarProducto',compact('producto'));
+        return view('productos.editarProducto',compact('producto'));
 	}
 
 
@@ -113,7 +104,6 @@ class ProductoController extends Controller {
             $this->producto->fill($request->except('foto'));
         }
 
-        //dd($this->producto);
         $this->producto->save();
 
         return Redirect::to('productos');
@@ -124,7 +114,7 @@ class ProductoController extends Controller {
     {
         $productoDesactivado = Producto::find($id);
 
-        $productoDesactivado->estadoProducto = false;
+        $productoDesactivado->estadoProducto = 0;
 
         if($productoDesactivado->save())
         {
@@ -154,9 +144,5 @@ class ProductoController extends Controller {
     }
 
 
-	public function destroy($id)
-	{
-		//
-	}
 
 }

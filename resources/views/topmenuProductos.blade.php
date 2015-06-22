@@ -13,7 +13,7 @@
         <div class="collapse navbar-collapse" id="navbar-topmenu">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="{{ asset('productos') }}">Productos</a>
+                    <a href="{{ asset('usuarios') }}">Usuarios</a>
                 </li>
                 <li>
                     <a href="{{ route('auth.logout') }}">Salir</a>

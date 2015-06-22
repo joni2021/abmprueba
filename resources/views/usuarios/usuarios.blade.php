@@ -58,9 +58,9 @@
 <div class="row">
     <div class="col-xs-12">
         <div class="table-responsive">
-            <table class="table table-bordered">
-                <thead>
-                <tr>
+            <table class="table table-bordered responsive">
+                <thead class="responsive">
+                <tr class="responsive">
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Nivel</th>
@@ -68,7 +68,7 @@
                     <th>Mail</th>
                     <th>Usuario</th>
                     @if(Auth::user()->fkNivel == '1')
-                    <th>acciones</th>
+                    <th>Acciones</th>
                     @endif
                 </tr>
                 </thead>
@@ -85,11 +85,11 @@
                     @if(Auth::user()->fkNivel == '1')
                     <td>
                         @if($u->estado == '0')
-                        <a href="usuarios/activar/{{$u->id}}" class = 'btn btn-primary'>activar</a>
+                        <a href="{{route('usuarios.activar',[$u->id])}}" class = 'btn btn-primary'>activar</a>
                         @else
 
-                        <a href="usuarios/desactivar/{{$u->id}}" class = 'btn btn-danger'>desactivar</a>
-                        <a href="usuarios/modificar/{!!$u->id!!}" class = 'btn btn-primary'>Modificar</a>
+                        <a href="{{route('usuarios.desactivar',[$u->id])}}" class = 'btn btn-danger'>desactivar</a>
+                        <a href="{{ route('usuarios.edit',[$u->id])}}" class = 'btn btn-primary'>Modificar</a>
                         @endif
                     </td>
                     @endif

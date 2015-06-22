@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Producto extends Model
+class Producto extends Entity
 {
     protected $fotoDefault = 'default.jpg';
 
@@ -18,5 +18,14 @@ class Producto extends Model
 
     public function getFotoDirectory(){
         return $this->fotoDirectory;
+    }
+
+    public function scopeProducto($qry,$busqueda){
+        if(trim($busqueda)!= '')
+            $qry->orWhere('producto','like',"%$busqueda%");
+    }
+
+    public function usuario(){
+        return $this->belongsTo(Usuario::getClass(), 'fkUsuario', 'id');
     }
 }

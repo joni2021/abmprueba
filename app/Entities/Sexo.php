@@ -11,7 +11,7 @@ namespace App\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sexo extends Model {
+class Sexo extends Entity {
 
 
 } 

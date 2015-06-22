@@ -11,7 +11,7 @@ namespace App\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Nivel extends Model {
+class Nivel extends Entity {
 
     protected $table = 'niveles';
 } 

@@ -3,6 +3,7 @@
 <head>
 	<title>Alta de usuario</title>
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+
 	<style type="text/css">
 	body
 	{
@@ -50,8 +51,6 @@
 		<div class="col-md-offset-2">
 			{!! Form::open(array('url' => 'usuarios/alta', 'method' => 'post')) !!}
 				
-
-
 				<div class="form-group col-sm-10">
 					{!! Form::submit('Crear Usuario', array('class' => "btn btn-info col-md-offset-5")) !!}
 				</div>

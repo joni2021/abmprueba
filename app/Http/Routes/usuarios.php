@@ -15,12 +15,12 @@ Route::group(['prefix' => 'usuarios', 'namespace' => 'usuarios'], function() {
         'uses' => 'UsuarioController@index'
     ]);
 
-    Route::get('edit/{idUsuario}',[
+    Route::get('{id}/edit',[
         'as' => 'usuarios.edit',
         'uses' => 'UsuarioController@edit'
     ]);
 
-    Route::put('edit/{idUsuario}', [
+    Route::put('{id}/edit', [
         'as' => 'usuarios.update',
         'uses' => 'UsuarioController@update'
     ]);
@@ -35,7 +35,13 @@ Route::group(['prefix' => 'usuarios', 'namespace' => 'usuarios'], function() {
         'uses' => 'UsuarioController@store'
     ]);
 
-    Route::get('usuarios/desactivar/{id}', 'UsuarioController@desactivar');
+    Route::get('usuarios/{id}/desactivar', [
+        'as' => 'usuarios.desactivar',
+        'uses' => 'UsuarioController@desactivar'
+    ]);
 
-    Route::get('usuarios/activar/{id}', 'UsuarioController@activar');
+    Route::get('usuarios/{id}/activar', [
+        'as' => 'usuarios.activar',
+        'uses' => 'UsuarioController@activar'
+    ]);
 });

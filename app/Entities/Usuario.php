@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\Hash;
 use Illuminate\Contracts\Hashing\Hasher;
 
-class Usuario extends Model implements AuthenticatableContract, CanResetPasswordContract {
+class Usuario extends Entity implements AuthenticatableContract, CanResetPasswordContract {
 
 	
 
@@ -38,11 +38,11 @@ class Usuario extends Model implements AuthenticatableContract, CanResetPassword
 
     // Relaciones
     public function sexo() {
-        return $this->belongsTo('App\Entities\Sexo', 'fkSexo', 'idSexo');
+        return $this->belongsTo(Sexo::getClass(), 'fkSexo', 'idSexo');
     }
 
     public function nivel() {
-        return $this->belongsTo('App\Entities\Nivel', 'fkNivel', 'idNivel');
+        return $this->belongsTo(Nivel::getClass(), 'fkNivel', 'idNivel');
     }
 
     // Scopes

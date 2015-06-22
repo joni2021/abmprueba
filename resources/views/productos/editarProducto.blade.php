@@ -1,50 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Editar producto</title>
-	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-	<style type="text/css">
-	body
-	{
-		font-family: helvetica;
+@extends('appProductos')
 
-	}
+@section('head')
+@endsection
 
-	ul li
-	{
-		list-style-type: none;
-	}
+@section('body')
 
-	form
-	{
-		background: #f2f2f2;
-	}
-
-	.container
-	{
-		border:1px solid #CCC;
-		margin-top: 20px;
-	}
-
-	.container h1
-	{
-		margin-bottom:10px;
-	}
-
-	#acciones
-		{
-			margin-top:20px;
-		}
-
-	</style>
-	<script type="text/javascript" src="../../js/jquery-1.11.3.min.js"></script>
-</head>
-<body>
-	<div id="acciones">
-		<a href="{{ asset('/productos') }}"  class="btn btn-warning col-md-offset-1 btn-md margin-15">Volver</a>
-	</div>
-	<section  class="container col-xs-9  col-md-offset-1">
-			
 		<h1 class="text-center">Editar producto: {{$producto->producto}}</h1>
 
 		
@@ -146,6 +106,4 @@
 		});*/
 	}
 	</script>
-
-</body>
-</html>
+@endsection
