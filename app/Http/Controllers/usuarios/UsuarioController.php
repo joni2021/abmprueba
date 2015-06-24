@@ -6,11 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Repositories\SexoRepo;
 use App\Repositories\UsuarioRepo;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Pagination\Paginator;
 use App\Http\Requests\CreateUserRequest;
-use Illuminate\Routing\Route;
-use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\EditUserRequest;
+
 
 class UsuarioController extends Controller {
 
@@ -22,19 +20,14 @@ class UsuarioController extends Controller {
         $this->sexoRepo = $sexoRepo;
     }
 
-	public function login(Request $request)
-    {
-
-    }
-
 	public function index(Request $request)
 	{
         $usuario = $this->usuarioRepo->ListAndPaginate(
             $request->get('search'),
             10
         );
-				
-		return view('usuarios/usuarios', compact('usuario'));
+
+		return view('usuarios.usuarios', compact('usuario'));
 	}
 
 	public function create() {
@@ -43,7 +36,7 @@ class UsuarioController extends Controller {
 		return view('usuarios.create', compact('sexos'));
 	}
 
-	
+
 	public function store(CreateUserRequest $request)
 	{
         $datos = $request->only('nombre','apellido','email','fkSexo','usuario','password');
@@ -57,25 +50,33 @@ class UsuarioController extends Controller {
 	}
 
 
-	public function edit()
+	public function edit($id)
 	{
-		$usuario = $this->usuarioRepo->getModel();
+        $usuario = $this->usuarioRepo->getModel()->find($id);
         $sexos = $this->sexoRepo->Listing();
 
-		return view('usuarios/formModificar', compact('usuario','sexos'));
+		return view('usuarios.formModificar', compact('usuario','sexos'));
 	}
 
 
-	
-	public function update(CreateUserRequest $request)
+
+	public function update(EditUserRequest $request, $id)
 	{
-		$this->usuario->fill($request->all());
-		$this->usuario->save();
+        $usuario = $this->usuarioRepo->find($id);
+
+        if($request->get('password') != '')
+            $datos = $request->only('nombre','apellido','email','fkSexo','usuario','password');
+        else
+            $datos = $request->only('nombre','apellido','email','fkSexo','usuario');
+
+        $usuario->fill($datos);
+
+        $usuario->save();
 
 		if(\Request::ajax())
-			return response()->json(['ok' => 'Se actualizó al usuario <b>'.$this->usuario->usuario.'</b>']);
+			return response()->json(['ok' => 'Se actualizó al usuario <b>'.$usuario->usuario.'</b>']);
 		else
-			return redirect()->back()->with('estado', ['ok' => 'Se actualizó al usuario <b>'.$this->usuario->usuario.'</b>']);
+			return redirect()->route('usuarios.index')->with(['ok' => 'Se actualizó al usuario '.$usuario->usuario]);
 	}
 
 
@@ -86,9 +87,9 @@ class UsuarioController extends Controller {
 		$usuarioDesactivado->estado = 0;
 
 		if($usuarioDesactivado->save())
-			return \Redirect::to('usuarios')->with('estado', ['ok' => 'Se desactivó al usuario <b>'.$usuarioDesactivado->usuario.'</b>']);
+			return \Redirect::to('usuarios')->with(['ok' => 'Se desactivó al usuario '.$usuarioDesactivado->usuario]);
 		else
-			return \Redirect::to('usuarios')->with('estado', ['no' => 'No se puso desactivar al usuario <b>'.$usuarioDesactivado->usuario.'</b>']);
+			return \Redirect::to('usuarios')->withErrors('No se puso desactivar al usuario '.$usuarioDesactivado->usuario);
 
 
 	}
@@ -101,9 +102,9 @@ class UsuarioController extends Controller {
 		$usuario->estado = 1;
 
 		if($usuario->save())
-			return \Redirect::to('usuarios')->with('estado', ['ok' => 'Se activó al usuario <b>'.$usuario->usuario.'</b>']);
+			return \Redirect::to('usuarios')->with(['ok' => 'Se activó al usuario '.$usuario->usuario]);
 		else
-			return \Redirect::to('usuarios')->with('estado', ['no' => 'No se puso activar al usuario <b>'.$usuario->usuario.'</b>']);
+			return \Redirect::to('usuarios')->withErrors('No se puso activar al usuario '.$usuario->usuario);
 
 		
 	}
@@ -113,7 +114,7 @@ class UsuarioController extends Controller {
 	{
 		\Auth::logout();
 
-		return \Redirect::to('auth/login');
+		return \Redirect::to('auth.login');
 	}
 
 }

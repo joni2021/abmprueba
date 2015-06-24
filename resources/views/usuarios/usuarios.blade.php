@@ -41,6 +41,7 @@
             Agregar Usuario
         </a>
     </div>
+
     <div class="col-xs-8 col-lg-6">
         {!! Form::open(['method' => 'GET']) !!}
             <div class="input-group">
@@ -75,25 +76,25 @@
 
                 <tbody>
                 @foreach($usuario as $u)
-                <tr>
-                    <th scope="row">{{ $u->nombre }}</th>
-                    <td>{{ $u->apellido }}</td>
-                    <td>{{ $u->nivel->nivel }}</td>
-                    <td>{{ $u->sexo->sexo }}</td>
-                    <td>{{ $u->email }}</td>
-                    <td>{{ $u->usuario }}</td>
-                    @if(Auth::user()->fkNivel == '1')
-                    <td>
-                        @if($u->estado == '0')
-                        <a href="{{route('usuarios.activar',[$u->id])}}" class = 'btn btn-primary'>activar</a>
-                        @else
+                    <tr>
+                        <th scope="row">{{ $u->nombre }}</th>
+                        <td>{{ $u->apellido }}</td>
+                        <td>{{ $u->nivel->nivel}}</td>
+                        <td>{{ $u->sexo->sexo}}</td>
+                        <td>{{ $u->email }}</td>
+                        <td>{{ $u->usuario }}</td>
+                        @if(Auth::user()->fkNivel == '1')
+                        <td>
+                            @if($u->estado == '0')
+                            <a href="{{route('usuarios.activar',[$u->id])}}" class = 'btn btn-primary'>activar</a>
+                            @else
 
-                        <a href="{{route('usuarios.desactivar',[$u->id])}}" class = 'btn btn-danger'>desactivar</a>
-                        <a href="{{ route('usuarios.edit',[$u->id])}}" class = 'btn btn-primary'>Modificar</a>
+                            <a href="{{route('usuarios.desactivar',[$u->id])}}" class = 'btn btn-danger'>desactivar</a>
+                            <a href="{{ route('usuarios.edit',[$u->id])}}" class = 'btn btn-primary'>Modificar</a>
+                            @endif
+                        </td>
                         @endif
-                    </td>
-                    @endif
-                </tr>
+                    </tr>
                 @endforeach
                 </tbody>
             </table>

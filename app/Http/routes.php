@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('/', 'Auth\AuthController@index');
+
 require (__DIR__ . '/Routes/auth.php');
 
 Route::group(['middleware' => 'auth'], function() {

@@ -1,4 +1,4 @@
-<div class="form-group col-sm-10">
+<div class="form-group">
     {!! Form::label('nombre', 'Nombre') !!}
     {!! Form::text('nombre', $usuario->nombre, array('placeholder' => 'Ingrese su nombre', 'class' => 'form-control')) !!}
     @if($errors->has('nombre'))
@@ -6,14 +6,14 @@
     @endif
 </div>
 
-<div class="form-group col-sm-10">
+<div class="form-group">
     {!! Form::label('apellido', 'Apellido') !!}
     {!! Form::text('apellido', $usuario->apellido, array('placeholder' => 'Ingrese su apellido', 'class' => "form-control",'required' => 'required')) !!}
     @if($errors->has('apellido'))
     <p class="pull-left text-danger">{!!$errors->get('apellido')[0]!!}</p>
     @endif
 </div>
-<div class="form-group col-sm-10">
+<div class="form-group">
     {!! Form::label('email', 'Mail') !!}
     {!! Form::email('email', $usuario->email, array('placeholder' => 'Ingrese su mail', 'class' => "form-control",'required' => 'required')) !!}
     @if($errors->has('email'))
@@ -21,7 +21,7 @@
     @endif
 </div>
 
-<div class="form-group col-sm-10">
+<div class="form-group">
     {!! Form::label('fkSexo', 'Sexo') !!}
     {!! Form::select('fkSexo', array('' => 'Seleccione su sexo','1' => 'Masculino', '2' => 'Femenino'), null, array('class' => 'form-control','required' => 'required')) !!}
     @if($errors->has('sexo'))
@@ -29,7 +29,7 @@
     @endif
 </div>
 
-<div class="form-group col-sm-10">
+<div class="form-group">
     {!! Form::label('usuario', 'Usuario') !!}
     {!! Form::text('usuario', $usuario->usuario, array('placeholder' => 'Ingrese su usuario', 'class' => "form-control",'required' => 'required')) !!}
     @if($errors->has('usuario'))
@@ -37,14 +37,10 @@
     @endif
 </div>
 
-<div class="form-group col-sm-10">
+<div class="form-group">
     {!! Form::label('password', 'Clave') !!}
     {!! Form::password('password', array('placeholder' => 'Ingrese su clave', 'class' => "form-control")) !!}
     @if($errors->has('password'))
     <p class="pull-left text-danger">{!!$errors->get('password')[0]!!}</p>
     @endif
-</div>
-
-<div class="form-group col-sm-10">
-    {!! Form::submit('Editar usuario', array('class' => "btn btn-info col-md-offset-5")) !!}
 </div>

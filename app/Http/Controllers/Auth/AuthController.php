@@ -2,17 +2,21 @@
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginUserRequest;
+use Illuminate\Support\Facades\Redirect;
 
 class AuthController extends Controller {
 
     public function index() {
-        return view('auth.login');
+        if(\Auth::check())
+            return Redirect::route('usuarios.index');
+        else
+            return view('auth.login');
     }
 
     public function authenticate(LoginUserRequest $request) {
 
         if (\Auth::attempt(['email' => $request->get('email'), 'password' => $request->get('password'), 'estado' => '1']))
-            return redirect()->intended('usuarios.index');
+            return Redirect::route('usuarios.index');
         else
             return redirect()->back()->withErrors('Hubo un error de logueo');
 

@@ -2,14 +2,10 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Entities\Producto;
 use App\Repositories\ProductoRepo;
-use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ProductoRequest;
-use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Storage;
 
 /**
@@ -25,7 +21,7 @@ class ProductoController extends Controller {
     }
 
 
-    public function validarFoto($archivo,$producto = null){
+    public function validarFoto($archivo){
         if(\Request::hasFile('foto')){
             if($archivo->isValid()){
 
@@ -39,7 +35,7 @@ class ProductoController extends Controller {
 
                 return $nombre;
             }else{
-                return Redirect::back()->with('estado',['no' => 'El archivo tiene que ser una foto']);
+                return Redirect::back()->withErrors('El archivo tiene que ser una foto');
             }
 
         }else{
@@ -71,57 +67,59 @@ class ProductoController extends Controller {
 
         $datos['foto'] = $this->validarFoto($request->file('foto'));
 
-        Producto::create($datos);
+        $this->productoRepo->create($datos);
 
         return Redirect::to('productos');
 
 	}
 
 
-
-	public function edit()
+	public function edit($id)
 	{
-        $producto = $this->productoRepo->getModel();
+        $producto = $this->productoRepo->getModel()->find($id);
 
         return view('productos.editarProducto',compact('producto'));
 	}
 
 
-	public function update(productoRequest $request, Producto $producto)
+	public function update(productoRequest $request, $id)
 	{
+        $producto = $this->productoRepo->getModel()->find($id);
+
         if($request->hasFile('foto')){
             $datos = $request->all();
 
-            $datos['foto'] = $this->validarFoto($request->file('foto'),$producto);
+            $datos['foto'] = $this->validarFoto($request->file('foto'));
 
-            if($this->producto->foto != $producto->getFotoDefault()){
-                Storage::delete($this->producto->foto);
+            if($producto->foto != $this->productoRepo->getModel()->getFotoDefault()){
+                Storage::delete($producto->foto);
             }
 
-            $this->producto->fill($datos);
+            $producto->fill($datos);
 
         }else{
-            $this->producto->fill($request->except('foto'));
+            $producto->fill($request->except('foto'));
+
         }
 
-        $this->producto->save();
+        $producto->save();
 
-        return Redirect::to('productos');
+        return Redirect::to('productos')->with('ok','Se modificó el producto '.$producto->producto);
 
 	}
 
     public function desactivar($id)
     {
-        $productoDesactivado = Producto::find($id);
+        $productoDesactivado = $this->productoRepo->find($id);
 
         $productoDesactivado->estadoProducto = 0;
 
         if($productoDesactivado->save())
         {
-            return \Redirect::back()->with('estado', ['ok' => 'Se desactivó el producto <b>'.$productoDesactivado->producto.'</b>']);
+            return \Redirect::back()->with('ok', 'Se desactivó el producto '.$productoDesactivado->producto);
         }else
         {
-            return \Redirect::back()->with('estado', ['no' => 'No se pudo desactivar el producto <b>'.$productoDesactivado->producto.'</b>']);
+            return \Redirect::back()->withErrors('No se pudo desactivar el producto '.$productoDesactivado->producto);
         }
 
     }
@@ -129,20 +127,18 @@ class ProductoController extends Controller {
 
     public function activar($id)
     {
-        $productoActivado = Producto::find($id);
+        $productoActivado = $this->productoRepo->find($id);
 
         $productoActivado->estadoProducto = 1;
 
         if($productoActivado->save())
         {
-            return \Redirect::back()->with('estado', ['ok' => 'Se activo el producto <b>'.$productoActivado->producto.'</b>']);
+            return \Redirect::back()->with('ok', 'Se activo el producto '.$productoActivado->producto);
         }else
         {
-            return \Redirect::back()->with('estado', ['no' => 'No se pudo activar el producto <b>'.$productoActivado->producto.'</b>']);
+            return \Redirect::back()->withErrors('No se pudo activar el producto '.$productoActivado->producto);
         }
 
     }
-
-
 
 }

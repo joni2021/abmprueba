@@ -12,6 +12,6 @@ namespace App\Entities;
 use Illuminate\Database\Eloquent\Model;
 
 class Sexo extends Entity {
-
+    protected $table = 'sexos';
 
 } 

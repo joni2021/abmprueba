@@ -6,8 +6,8 @@
             <div class="panel panel-default">
                 <div class="panel-body">
 
-                    {!! Form::model($usuario, ['url' => 'usuarios/modificar/'.$usuario->id, 'method' => 'PUT']) !!}
-                    @include('usuarios.partials.form')
+                    {!! Form::model($usuario, ['url' => 'usuarios/'.$usuario->id.'/edit', 'method' => 'PUT']) !!}
+                    @include('usuarios.partials.formModificar')
 
                     {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
                     {!! Form::close() !!}
